@@ -1,6 +1,12 @@
 # Simple Address Book
 This Java Swing application provides a basic address book functionality, allowing users to add, view, search, and remove contacts. The contacts are stored and managed in an XML format.
 
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Java Concepts and Features](#java-concepts-and-features)
+- [Screenshots](#screenshots)
+
 ## Features
 - Add New Contacts: Easily input and save new contact details (name, surname, email, phone number).
 - View Contacts: Display all stored contacts in a user-friendly format or as their raw XML representation.
