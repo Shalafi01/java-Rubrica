@@ -1,0 +1,62 @@
+INIZIALIZZAZIONE DELLA RUBRICA
+Le classi utili alla creazione e gestione della rubrica sono tutte dichiarate nella classe GUI, in modo
+che siano visibili a tutti i componenti. Questi sono poi inizializzati nel costruttore subito dopo 
+initComponents() che inizializza i componenti della grafica.
+
+PULSANTE INSERISCI
+Una volta che le classi sono dichiarate e inizializzate il tasto inserisci dichiara ed inserisce
+nella rubrica i parametri inseriti nelle 4 jTextField sopra. Viene effettuato un controllo che nessun
+field sia stato lasciato vuoto. L'unica eccezzione è Element persona, che dovendo essere in realtà un vettore
+di elementi (vedi Elimina voce), è dichiarato ed inizializzato nella classe GUI.
+
+JMENUBAR
+In alto, c'è un menù a tendina con le seguenti opzioni:
+FILE > 	
+NUOVA RUBRICA: 	Se la rubrica corrente non è vuota viene chiesto all'utente se vuole salvarla (chiamando 
+		il metodo salva(1)) prima di uscire. Successivamente inizializza Document.
+SALVA: 		Chiama il metodo salva(1)
+IMPORTA RUBRICA: 
+DOCUMENTAZIONE: Apre questo file.
+ESCI: 		Se la rubrica corrente non è vuota viene chiesto all'utente se vuole salvarla (chiamando il metodo 
+		salva(1)) prima di uscire. In caso contrario esce chiude il programma direttamente.
+AZIONI > 
+CERCA: 		Viene chiesto all'utente cosa cercare e nell'anteprima verranno visualizzati tutti i contatti 
+		contenenti una corrispondenza. È possibile cercare uno dei qualsiasi parametri anche contemporaneamente
+		ed in qualunque ordine. È possibile cercare sia sulla visualizzazione rubrica che in quella XML.
+RIMUOVI VOCI: 	Viene rimossa la persona con l'indice dato in input dall'utente. Dopodiché, vengono riassegnati i valori
+		id per coprire quello dell'elemento eliminato, e la persona mancante viene sostiuita nel vettore da quella 
+		successiva fino alla fine della rubrica.
+VISUALIZZA: 	Permette di cambiare il tipo di visualizzazione nell'anteprima.
+Tutte le opzioni del menù hanno una scorciatoia da tastiera scritta affianco.
+
+METODI
+SALVA (INT)
+Viene creata la cartella Rubrica sul desktop, qui verranno salvate tutte le rubriche. (Se già esiste, non succede niente)
+Viene estratta data e ora di sistema.
+Viene chiesto se si vuole dare un nome alla rubrica, altrimenti sarà assegnato il nome rubrica + data di sistema.
+
+RIASSEGNAID()
+Utile al funzionamento di Rimuovi voci, impedisce che la persona eliminata provochi un NullPointerException se l'utente
+vi fa riferimento dopo la sua cancellazione.
+
+ANTEPRIMA()
+Se la visualizzazione corrente è del tipo rubrica aggiorna l'anteprima con gli ultimi dati inseriti.
+Se invece è del tipo XML salva l'anteprima in formato rubrica su una variabile e chiama il metodo AnteprimaXML()
+
+ANTEPRIMAXML()
+A partire dal Document visualizza la rubrica nell'anteprima. Perchè vengano riconosciuti i parametri durante 
+la ricerca viene aggiunto uno spazio prima di ogni '<' o dopo ogni '>', visto che lavora con .next()
+
+CONTIENE()
+Verifica per ogni persona se sono presenti tutte le parole digitate dall'utente, a prescindere dal tipo di visualizzazione.
+Vengono creati due scanner, uno per il testo dell'anteprima e uno per gli elementi da cercare inseriti dall'utente.
+Vengono quindi dichiarati un Set<String> per l'anteprima e una Collection per gli elementi da cercare, aggiungendo quest'ultimi
+con il metodo .add(), parola per parola.
+Viene quindi restituito il risultato di Set<String>.containsAll(Collection).
+Se la visualizzazione sia del tipo rubrica, vengono eliminate dal testo dell'anteprima le parentesi.
+
+
+
+
+
+By Nicola Tomasoni
