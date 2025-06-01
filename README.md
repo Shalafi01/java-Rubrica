@@ -36,7 +36,9 @@ XSLT (via Transformer API): For transforming XML data into a readable string for
 - User Notification Dialogs
 
 ## Screenshots
-<img src="img/screenshot_1.png" alt="Address Book Screenshot" style="width: 700px;"/>
+<img src="img/screenshot.png" alt="Address Book Screenshot" style="width: 400px;"/>
+
+<img src="img/screenshot_1.png" alt="Address Book Screenshot" style="width: 400px;"/>
 
 
 
